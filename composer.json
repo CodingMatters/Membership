@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "CodingMatters\\Membership": "src/"
+            "CodingMatters\\Membership\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CodingMatters\\MembershipTest": "tests/"
+            "CodingMatters\\MembershipTest\\": "tests/"
         }
     }
 }
