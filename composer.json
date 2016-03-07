@@ -1,7 +1,7 @@
 {
     "name": "codingmatters/membership",
     "description": "Abstracted membership module",
-    "keywords": "membership",
+    "keywords": ["membership"],
     "homepage": "https://chronicles.codingmatters.io/membership/",
     "license": "MIT",
     "authors": [
