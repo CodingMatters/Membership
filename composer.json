@@ -14,13 +14,30 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "roave/security-advisories": "dev-master",
-        "filp/whoops": "^2.0"
+        "zendframework/zend-router": "^3.0",
+        "zendframework/zend-navigation": "^2.7",
+        "zendframework/zend-config": "^2.6",
+        "zendframework/zend-i18n-resources": "^2.5",
+        "zendframework/zend-expressive": "^1.0",
+        "zendframework/zend-expressive-helpers": "^2.0",
+        "zendframework/zend-expressive-zendviewrenderer": "^1.1",
+        "zendframework/zend-expressive-zendrouter": "^1.0",
+        "zendframework/zend-authentication": "^2.5",
+        "zendframework/zend-permissions": "^2.6",
+        "zendframework/zend-crypt": "^2.6",
+        "codingmatters/kernel": "^0.1 || ^1.0"
     },
     "require-dev": {        
-        "squizlabs/php_codesniffer": "^2.3"
+        "phpunit/phpunit": "^5.3",
+        "phpunit/php-invoker": "^1.1",
+        "squizlabs/php_codesniffer": "^2.3",
+        "phpbench/phpbench": "^0.11",
+        "filp/whoops": "^2.0",        
+        "ocramius/proxy-manager": "^2.0"
     },
     "autoload": {
         "psr-4": {
+            "classmap": ["./src/Module.php"],
             "CodingMatters\\Membership\\": "src/"
         }
     },
@@ -28,5 +45,30 @@
         "psr-4": {
             "CodingMatters\\MembershipTest\\": "tests/"
         }
-    }
+    },
+    "extra": {
+        "coding-matters": {
+            "component": "CodingMatters\\Membership",
+            "config-provider": "CodingMatters\\Membership\\Module"
+        },
+        "branch-alias": {
+            "dev-develop": "1.0-dev"
+        }
+    },
+    "scripts": {
+        "post-install-cmd"  : [
+            "@check"
+        ],
+        "post-update-cmd"   : [            
+            "@check"
+        ],
+        "check": [
+            "@cs",
+            "@test"
+        ],
+        "cs": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit"
+    },
+    "minimum-stability": "stable"
 }
