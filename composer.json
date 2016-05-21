@@ -24,6 +24,8 @@
         "zendframework/zend-expressive-zendrouter": "^1.0",
         "zendframework/zend-authentication": "^2.5",
         "zendframework/zend-permissions-acl": "^2.6",
+        "zendframework/zend-stdlib": "^3.0",
+        "zendframework/zend-hydrator": "^2.2",
         "zendframework/zend-crypt": "^2.6",
         "codingmatters/kernel": "^0.1 || ^1.0"
     },

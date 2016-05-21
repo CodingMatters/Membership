@@ -25,29 +25,23 @@
  * THE SOFTWARE.
  */
 
-namespace CodingMatters\MembershipTest\Middleware;
+namespace CodingMatters\Membership\Option;
 
-use CodingMatters\Membership\Factory\AuthenticationMiddlewareFactory;
-use CodingMatters\Membership\Service\AuthenticationService;
-use Zend\Stratigility\MiddlewareInterface;
-
-class AuthenticationMiddlewareTest extends \PHPUnit_Framework_TestCase
+interface RoutingConfigOptionInterface
 {
-    /** @var MiddlewareInterface */
-//    protected $middleware;
+    public function setRegistrationRedirectPath($path = '/register');
 
-//    public function setUp()
-//    {
-//        $this->middleware =  new AuthenticationMiddlewareFactory(new AuthenticationService());
-//    }
+    public function getRegistrationRedirectPath();
 
-    public function userNotAuthenticated()
-    {
-        $service = $this->getMockBuilder(AuthenticationService::class)->disableOriginalConstructor()->getMock();
+    public function setLoginRedirectPath($path = '/login');
 
-        $service->method('hasIdentity')->willReturn(false);
+    public function getLoginRedirectPath();
 
+    public function setLogoutRedirectPath($path = '/logout');
 
+    public function getLogoutRedirectPath();
 
-    }
+    public function setBaseRedirectPath($path = '/');
+
+    public function getBaseRedirectPath();
 }

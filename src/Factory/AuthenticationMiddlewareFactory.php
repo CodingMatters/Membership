@@ -27,15 +27,16 @@
 
 namespace CodingMatters\Membership\Factory;
 
-use CodingMatters\Membership\Middleware\Authentication;
-use Zend\Authentication\AuthenticationServiceInterface;
+use CodingMatters\Membership\Middleware\AuthenticationMiddleware;
+use CodingMatters\Membership\Service\AuthenticationService;
+use CodingMatters\Membership\Option\RoutingConfigOption;
 use Interop\Container\ContainerInterface;
 
 class AuthenticationMiddlewareFactory
 {
     public function __invoke(ContainerInterface $container)
     {
-        //do configuration here
-        return new Authentication($container->get(AuthenticationServiceInterface::class));
+        $options = $container->get('config')['codingmatters']['membership']['routing'];
+        return new AuthenticationMiddleware(new AuthenticationService(new RoutingConfigOption($options)));       
     }
 }

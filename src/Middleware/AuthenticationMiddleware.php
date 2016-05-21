@@ -33,7 +33,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Zend\Stratigility\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class Authentication implements MiddlewareInterface
+class AuthenticationMiddleware implements MiddlewareInterface
 {
     /** @var AuthenticationServiceInterface */
     private $service;

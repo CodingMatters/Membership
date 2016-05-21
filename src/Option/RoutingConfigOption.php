@@ -25,62 +25,58 @@
  * THE SOFTWARE.
  */
 
-namespace CodingMatters\Membership\Service;
+namespace CodingMatters\Membership\Option;
 
-use Zend\Authentication\AuthenticationServiceInterface;
-use CodingMatters\Membership\Option\RoutingConfigOptionInterface;
+use Zend\Stdlib\AbstractOptions;
 
-final class AuthenticationService implements AuthenticationServiceInterface
+class RoutingConfigOption extends AbstractOptions implements RoutingConfigOptionInterface
 {
-    /** @var RoutingConfigOptionInterface  */
-    private $router;
-
-    private $identity = false;
-
-    public function __construct(RoutingConfigOptionInterface $router)
+    /**
+     * Turn off strict options mode (required)
+     */
+    protected $__strictMode__ = false;
+    protected $registrationRedirectPath = '/register';
+    protected $loginRedirectPath        = '/login';
+    protected $logoutRedirectPath       = '/logout';
+    protected $baseRedirectPath         = '/';
+    
+    public function setRegistrationRedirectPath($path = '/register')
     {
-        $this->router = $router;
+        $this->registrationRedirectPath = $path;
     }
 
-    public function loginPath()
+    public function getRegistrationRedirectPath()
     {
-        return $this->router->getLoginRedirectPath();
+        return $this->registrationRedirectPath;
     }
 
-    public function basePath()
+    public function setLoginRedirectPath($path = '/login')
     {
-        return $this->router->getBaseRedirectPath();
+        $this->loginRedirectPath = $path;
     }
 
-    public function registrationPath()
+    public function getLoginRedirectPath()
     {
-        return $this->router->getRegistrationRedirectPath();
+        return $this->loginRedirectPath;
     }
 
-    public function logoutPath()
+    public function setLogoutRedirectPath($path = '/logout')
     {
-        return $this->router->getLogoutRedirectPath();
+        $this->logoutRedirectPath = $path;
     }
 
-    public function hasIdentity()
+    public function getLogoutRedirectPath()
     {
-        $this->authenticate();
-        return $this->getIdentity();
+        return $this->logoutRedirectPath;
     }
 
-    public function getIdentity()
+    public function setBaseRedirectPath($path = '/')
     {
-        return $this->identity;
+        $this->baseRedirectPath = $path;
     }
 
-    public function clearIdentity()
+    public function getBaseRedirectPath()
     {
-        unset($this->indentity);
-        return $this->getIdentity();
-    }
-
-    public function authenticate()
-    {
-        $this->identity = true;
+        return $this->baseRedirectPath;
     }
 }
