@@ -39,7 +39,7 @@ class RoutingConfigOption extends AbstractOptions implements RoutingConfigOption
     protected $loginRedirectPath        = '/login';
     protected $logoutRedirectPath       = '/logout';
     protected $baseRedirectPath         = '/';
-    
+
     public function setRegistrationRedirectPath($path = '/register')
     {
         $this->registrationRedirectPath = $path;

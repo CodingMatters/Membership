@@ -37,6 +37,6 @@ class AuthenticationMiddlewareFactory
     public function __invoke(ContainerInterface $container)
     {
         $options = $container->get('config')['codingmatters']['membership']['routing'];
-        return new AuthenticationMiddleware(new AuthenticationService(new RoutingConfigOption($options)));       
+        return new AuthenticationMiddleware(new AuthenticationService(new RoutingConfigOption($options)));
     }
 }

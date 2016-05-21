@@ -15,5 +15,5 @@ $configFiles = [
 foreach ($configFiles as $configFile) {
     $config = \Zend\Stdlib\ArrayUtils::merge($config, $configFile);
 }
-//var_dump($config); exit;
+
 return $config;
