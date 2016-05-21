@@ -23,7 +23,7 @@
         "zendframework/zend-expressive-zendviewrenderer": "^1.1",
         "zendframework/zend-expressive-zendrouter": "^1.0",
         "zendframework/zend-authentication": "^2.5",
-        "zendframework/zend-permissions": "^2.6",
+        "zendframework/zend-permissions-acl": "^2.6",
         "zendframework/zend-crypt": "^2.6",
         "codingmatters/kernel": "^0.1 || ^1.0"
     },
@@ -36,8 +36,8 @@
         "ocramius/proxy-manager": "^2.0"
     },
     "autoload": {
+        "classmap": ["./src/Module.php"],
         "psr-4": {
-            "classmap": ["./src/Module.php"],
             "CodingMatters\\Membership\\": "src/"
         }
     },
